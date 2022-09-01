@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import {Form, Button} from 'react-bootstrap';
+import { Form, Button, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       cats: [],
     }
   }
 
-  getCats = async() => {
+  getCats = async () => {
     try {
       // make a call to my server/cats to get cats
       let catData = await axios.get(`${process.env.REACT_APP_SERVER}/cats`);
@@ -81,45 +81,79 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.cats);
+    // let cats = this.state.cats.map(cat => (
+    //   <>
+    //     <p key={cat._id}>{cat.name} is a {cat.color}</p>
+    //     <button onClick={() => this.handleDelete(cat)}>Remove from database?</button>
+    //   </>
+    // ))
+
+
     let cats = this.state.cats.map(cat => (
-      <>
-        <p key={cat._id}>{cat.name} is a {cat.color}</p>
-        <button onClick={() => this.handleDelete(cat)}>Remove from database?</button>
-      </>
+
+      <Accordion.Item eventKey={cat._id}>
+        <Accordion.Header>Check out {cat.name}!</Accordion.Header>
+        <Accordion.Body>
+          {cat.name} is so very {cat.color}!
+          <Button key="deleteCat" onClick={() => this.handleDelete(cat)}>Remove from database?</Button>
+        </Accordion.Body>
+      </Accordion.Item>
     ))
+
+
+    //   <Carousel.Item key={cat._id}>
+    //     <Carousel.Caption>
+    //       <h3 style={{ backgroundColor: 'teal', borderRadius: '5px', width: 'max-content', margin: 'auto', padding: '5px' }}>Check out {cat.name}!</h3>
+    //       <h3 style={{ backgroundColor: 'teal', borderRadius: '5px', width: 'max-content', margin: 'auto', padding: '5px' }}>Color: {cat.color}</h3>
+    //       <Button key="deleteCat" onClick={() => this.handleDelete(cat)}>Remove from database?</Button>
+    //     </Carousel.Caption>
+    //     <img
+    //       className="d-block w-100"
+    //       src="https://dummyimage.com/100x100/07B862/07B862"
+    //       alt="Placeholder"
+    //     />
+    //   </Carousel.Item>
+
+    // ))
+
+
+
     return (
       <>
         <header>
           <h1>Cool Cats</h1>
         </header>
         <main>
-        {
-          this.state.cats.length > 0 &&
-          <>
-            {cats}
-          </>
-        }
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group className="mb-3" controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="name" placeholder="Enter cat name" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formColor">
-            <Form.Label>Color</Form.Label>
-            <Form.Control type="name" placeholder="Enter cat color" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formSpayNeuter">
-            <Form.Check type="checkbox" label="Is spayed or neutered?" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formLocation">
-            <Form.Label>Location</Form.Label>
-            <Form.Control type="name" placeholder="Enter cat location" />
-          </Form.Group>
+          {
+            this.state.cats.length > 0 &&
+                        
+              <Accordion>  
+                {cats}
+              </Accordion>
+           
+          }
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group className="mb-3" controlId="formName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="name" placeholder="Enter cat name" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formColor">
+              <Form.Label>Color</Form.Label>
+              <Form.Control type="name" placeholder="Enter cat color" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formSpayNeuter">
+              <Form.Check type="checkbox" label="Is spayed or neutered?" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formLocation">
+              <Form.Label>Location</Form.Label>
+              <Form.Control type="name" placeholder="Enter cat location" />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
         </main>
       </>
     );
