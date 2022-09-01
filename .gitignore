@@ -1,3 +1,31 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@dtuskippy 
+codefellows
+/
+seattle-code-301d88
+Public
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+Security
+Insights
+seattle-code-301d88/class-11/in-class-demo/front-end/.gitignore
+@arpatterson31
+arpatterson31 adds front end and backend code cats demo
+Latest commit d486daa 3 days ago
+ History
+ 1 contributor
+24 lines (19 sloc)  315 Bytes
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -12,6 +40,7 @@
 /build
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local
@@ -21,3 +50,18 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+You have no unread notifications
