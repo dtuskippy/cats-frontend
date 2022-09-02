@@ -101,21 +101,6 @@ class App extends React.Component {
     ))
 
 
-    //   <Carousel.Item key={cat._id}>
-    //     <Carousel.Caption>
-    //       <h3 style={{ backgroundColor: 'teal', borderRadius: '5px', width: 'max-content', margin: 'auto', padding: '5px' }}>Check out {cat.name}!</h3>
-    //       <h3 style={{ backgroundColor: 'teal', borderRadius: '5px', width: 'max-content', margin: 'auto', padding: '5px' }}>Color: {cat.color}</h3>
-    //       <Button key="deleteCat" onClick={() => this.handleDelete(cat)}>Remove from database?</Button>
-    //     </Carousel.Caption>
-    //     <img
-    //       className="d-block w-100"
-    //       src="https://dummyimage.com/100x100/07B862/07B862"
-    //       alt="Placeholder"
-    //     />
-    //   </Carousel.Item>
-
-    // ))
-
 
 
     return (
